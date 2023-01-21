@@ -186,7 +186,7 @@ FakesAssemblies/
 
 .vscode/settings.json
 
-MinhasReceitas.xml
+MyRecipes.xml
 
 /.sonarqube
 coverage.opencover.xml
