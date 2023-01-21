@@ -1,6 +1,6 @@
-namespace RecipeBook.Domain.Entities;
+namespace RecipeBook.Comunication.Payloads;
 
-public class User : EntityBase
+public class SignUpUserRequestDto
 {
     public string Name { get; set; } = null!;
     public string Email { get; set; } = null!;
