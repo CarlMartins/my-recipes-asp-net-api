@@ -1,4 +1,6 @@
 using RecipeBook.Api.Filters;
+using RecipeBook.Application;
+using RecipeBook.Application.Services.AutoMapper;
 using RecipeBook.Domain.Extensions;
 using RecipeBook.Infrastructure;
 using RecipeBook.Infrastructure.Migrations;
@@ -12,10 +14,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices(builder.Configuration);
-builder.Services.AddMvc(option =>
+builder.Services.AddApplication();
+builder.Services.AddMvc(option => { option.Filters.Add(typeof(ExceptionFilter)); });
+
+builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(cfg =>
 {
-    option.Filters.Add(typeof(ExceptionFilter));
-});
+    cfg.AddProfile(new AutoMapperConfiguration());
+}).CreateMapper());
 
 var app = builder.Build();
 
@@ -40,9 +45,8 @@ void UpdateDatabase()
 {
     var connectionString = builder.Configuration.GetConnetion();
     var databaseName = builder.Configuration.GetDatabaseName();
-    
-    
+
     Database.CriarDatabase(connectionString, databaseName);
-    
+
     app.MigrateDatabase();
 }
