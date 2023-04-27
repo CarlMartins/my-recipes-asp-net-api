@@ -3,7 +3,7 @@ using FluentValidation;
 using RecipeBook.Comunication.Payloads;
 using RecipeBook.Exceptions;
 
-namespace RecipeBook.Application.UseCases.User;
+namespace RecipeBook.Application.UseCases.User.Register;
 
 public class UserSignUpValidator : AbstractValidator<SignUpUserRequestDto>
 {

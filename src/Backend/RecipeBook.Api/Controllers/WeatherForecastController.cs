@@ -1,4 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using RecipeBook.Application.UseCases.User;
+using RecipeBook.Application.UseCases.User.Register;
+using RecipeBook.Application.UseCases.User.Register.Interfaces;
+using RecipeBook.Comunication.Payloads;
 
 namespace RecipeBook.Api.Controllers;
 
@@ -6,27 +10,21 @@ namespace RecipeBook.Api.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-    private readonly ILogger<WeatherForecastController> _logger;
-
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
-        _logger = logger;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public async Task<IActionResult> Get([FromServices] IUserRegisterUseCase registerUseCase)
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+        await registerUseCase.Execute(new SignUpUserRequestDto
+        {
+            Name = "Carlos",
+            Email = "carlos@email.com",
+            Password = "123456",
+            Contact = "99 9 9999-9999"
+        });
+
+        return Ok();
     }
 }
