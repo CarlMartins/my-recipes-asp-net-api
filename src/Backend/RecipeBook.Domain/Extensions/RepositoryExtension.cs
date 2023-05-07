@@ -25,4 +25,11 @@ public static class RepositoryExtension
 
         return $"{connection}Database={databaseName}";
     }
+    
+    public static string GetInMemoryDatabaseSetting(this IConfiguration configuration)
+    {
+        var inMemoryDatabase = configuration.GetSection("Settings.InMemoryDatabase").Value;
+
+        return inMemoryDatabase ?? string.Empty;
+    }
 }
