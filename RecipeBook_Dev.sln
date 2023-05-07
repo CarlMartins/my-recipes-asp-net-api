@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validators.Test", "tests\Va
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHelpers", "tests\TestHelpers\TestHelpers.csproj", "{720049B9-9904-4561-9B22-E3764FA5CC0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "tests\UseCases.Test\UseCases.Test.csproj", "{7342CF69-C6BB-416B-8C9B-08DE0D9EC743}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,7 @@ Global
 		{CEBD2A5B-9244-4572-BFC8-AF845A94BAA7} = {A7EA9A8F-ECDA-4AE4-919E-4BE20A482BC6}
 		{78752EAA-9818-44B1-9CFF-9D56B1A15007} = {49569B12-7125-4C81-B791-A8DCF5A3F95C}
 		{720049B9-9904-4561-9B22-E3764FA5CC0A} = {49569B12-7125-4C81-B791-A8DCF5A3F95C}
+		{7342CF69-C6BB-416B-8C9B-08DE0D9EC743} = {49569B12-7125-4C81-B791-A8DCF5A3F95C}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F1E9875B-5A97-4290-9327-E7A7DF245CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -74,5 +77,9 @@ Global
 		{720049B9-9904-4561-9B22-E3764FA5CC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{720049B9-9904-4561-9B22-E3764FA5CC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{720049B9-9904-4561-9B22-E3764FA5CC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7342CF69-C6BB-416B-8C9B-08DE0D9EC743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7342CF69-C6BB-416B-8C9B-08DE0D9EC743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7342CF69-C6BB-416B-8C9B-08DE0D9EC743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7342CF69-C6BB-416B-8C9B-08DE0D9EC743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
