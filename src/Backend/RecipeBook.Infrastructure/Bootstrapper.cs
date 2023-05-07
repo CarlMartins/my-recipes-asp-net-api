@@ -23,9 +23,13 @@ public static class Bootstrapper
 
     private static void AddContext(IServiceCollection services, IConfiguration configuration)
     {
+        bool.TryParse(configuration.GetInMemoryDatabaseSetting(), out var inMemoryDatabase);
+
+        if (inMemoryDatabase) return;
+        
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 26));
         var connectionString = configuration.GetCompleteConnectionString();
-
+            
         services.AddDbContext<MyRecipesContext>(options =>
         {
             options.UseMySql(connectionString, serverVersion);
@@ -46,6 +50,10 @@ public static class Bootstrapper
 
     private static void AddFluentMigrator(IServiceCollection services, IConfiguration configuration)
     {
+        bool.TryParse(configuration.GetInMemoryDatabaseSetting(), out var inMemoryDatabase);
+        
+        if (inMemoryDatabase) return;
+        
         services
             .AddFluentMigratorCore()
             .ConfigureRunner(x => x.AddMySql5()
