@@ -3,8 +3,7 @@ using FluentValidation.Results;
 using RecipeBook.Application.Services.Cryptography;
 using RecipeBook.Application.Services.Token;
 using RecipeBook.Application.UseCases.User.Register.Interfaces;
-using RecipeBook.Comunication.Payloads;
-using RecipeBook.Comunication.Responses;
+using RecipeBook.Comunication.DTOs.SignUp;
 using RecipeBook.Domain.Repositories;
 using RecipeBook.Domain.Repositories.UserRepositories;
 using RecipeBook.Exceptions;
@@ -37,7 +36,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
         _userReadOnlyRepository = userReadOnlyRepository;
     }
 
-    public async Task<SignedUpUserDto> Execute(SignUpUserRequestDto request)
+    public async Task<ResponseSignedUpUserDto> Execute(SignUpUserRequestDto request)
     {
         await Validate(request);
 
@@ -49,7 +48,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
 
         var token = _tokenController.GenerateToken(entity.Email);
 
-        return new SignedUpUserDto
+        return new ResponseSignedUpUserDto
         {
             Token = token
         };

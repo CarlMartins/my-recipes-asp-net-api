@@ -22,4 +22,11 @@ public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository
     {
         return await _context.Users.AnyAsync(x => x.Email == email);
     }
+
+    public async Task<User?> RecoverWithEmailAndPassword(string email, string password)
+    {
+        return await _context.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+    }
 }

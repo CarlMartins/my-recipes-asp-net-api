@@ -1,4 +1,4 @@
-namespace RecipeBook.Comunication.Responses;
+namespace RecipeBook.Comunication.DTOs.Errors;
 
 public class ErrorResponseDto
 {

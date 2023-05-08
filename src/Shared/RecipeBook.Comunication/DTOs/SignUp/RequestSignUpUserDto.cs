@@ -1,4 +1,4 @@
-namespace RecipeBook.Comunication.Payloads;
+namespace RecipeBook.Comunication.DTOs.SignUp;
 
 public class SignUpUserRequestDto
 {
