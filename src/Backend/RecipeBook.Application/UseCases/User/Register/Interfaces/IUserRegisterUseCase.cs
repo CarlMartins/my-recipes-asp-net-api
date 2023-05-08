@@ -1,9 +1,8 @@
-using RecipeBook.Comunication.Payloads;
-using RecipeBook.Comunication.Responses;
+using RecipeBook.Comunication.DTOs.SignUp;
 
 namespace RecipeBook.Application.UseCases.User.Register.Interfaces;
 
 public interface IUserRegisterUseCase
 {
-    Task<SignedUpUserDto> Execute(SignUpUserRequestDto request);
+    Task<ResponseSignedUpUserDto> Execute(SignUpUserRequestDto request);
 }

@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 using FluentValidation;
-using RecipeBook.Comunication.Payloads;
+using RecipeBook.Comunication.DTOs.SignUp;
 using RecipeBook.Exceptions;
 
 namespace RecipeBook.Application.UseCases.User.Register;

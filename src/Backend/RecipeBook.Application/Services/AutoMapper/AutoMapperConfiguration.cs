@@ -1,5 +1,5 @@
 using AutoMapper;
-using RecipeBook.Comunication.Payloads;
+using RecipeBook.Comunication.DTOs.SignUp;
 using RecipeBook.Domain.Entities;
 
 namespace RecipeBook.Application.Services.AutoMapper;

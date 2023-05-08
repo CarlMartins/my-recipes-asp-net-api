@@ -1,5 +1,5 @@
 using Bogus;
-using RecipeBook.Comunication.Payloads;
+using RecipeBook.Comunication.DTOs.SignUp;
 
 namespace TestHelpers.Requests;
 

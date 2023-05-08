@@ -1,6 +1,5 @@
 using FluentAssertions;
 using RecipeBook.Application.UseCases.User.Register;
-using RecipeBook.Comunication.Payloads;
 using RecipeBook.Exceptions;
 using TestHelpers.Requests;
 
