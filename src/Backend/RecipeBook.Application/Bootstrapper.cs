@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RecipeBook.Application.Services.Cryptography;
 using RecipeBook.Application.Services.Token;
+using RecipeBook.Application.UseCases.Login.LogIn;
 using RecipeBook.Application.UseCases.User.Register;
 using RecipeBook.Application.UseCases.User.Register.Interfaces;
 
@@ -13,7 +14,7 @@ public static class Bootstrapper
     {
         AddPasswordSalt(services, configuration);
         AddTokenController(services, configuration);
-        services.AddScoped<IUserRegisterUseCase, UserRegisterUseCase>();
+        AddUseCases(services);
     }
 
     private static void AddPasswordSalt(this IServiceCollection services, IConfiguration configuration)
@@ -32,5 +33,12 @@ public static class Bootstrapper
         var tokenKey = configuration.GetRequiredSection("Settings:TokenKey").Value!;
 
         services.AddSingleton<ITokenController>(_ => new TokenController(tokenExpirationMinutes, tokenKey!));
+    }
+    
+    private static void AddUseCases(this IServiceCollection services)
+    {
+        services
+            .AddScoped<IUserRegisterUseCase, UserRegisterUseCase>()
+            .AddScoped<ILoginUseCase, LoginUseCase>();
     }
 }
