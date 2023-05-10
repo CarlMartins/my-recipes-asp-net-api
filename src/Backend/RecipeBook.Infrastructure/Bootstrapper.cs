@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RecipeBook.Domain.Extensions;
 using RecipeBook.Domain.Repositories;
-using RecipeBook.Domain.Repositories.UserRepositories;
+using RecipeBook.Domain.Repositories.User;
 using RecipeBook.Infrastructure.RepositoryAccess;
 using RecipeBook.Infrastructure.RepositoryAccess.Repositories;
 
@@ -40,7 +40,8 @@ public static class Bootstrapper
     {
         services
             .AddScoped<IUserWriteOnlyRepository, UserRepository>()
-            .AddScoped<IUserReadOnlyRepository, UserRepository>();
+            .AddScoped<IUserReadOnlyRepository, UserRepository>()
+            .AddScoped<IUserUpdateUpdateOnlyRepository, UserRepository>();
     }
 
     private static void AddUnitOfWork(IServiceCollection services)

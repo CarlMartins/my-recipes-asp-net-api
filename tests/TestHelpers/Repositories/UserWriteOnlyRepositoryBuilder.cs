@@ -1,5 +1,5 @@
 using Moq;
-using RecipeBook.Domain.Repositories.UserRepositories;
+using RecipeBook.Domain.Repositories.User;
 
 namespace TestHelpers.Repositories;
 
