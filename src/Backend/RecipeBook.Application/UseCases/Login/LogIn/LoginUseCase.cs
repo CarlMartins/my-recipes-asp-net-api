@@ -1,7 +1,7 @@
 using RecipeBook.Application.Services.Cryptography;
 using RecipeBook.Application.Services.Token;
 using RecipeBook.Comunication.DTOs.Login;
-using RecipeBook.Domain.Repositories.UserRepositories;
+using RecipeBook.Domain.Repositories.User;
 using RecipeBook.Exceptions.ExceptionsBase;
 
 namespace RecipeBook.Application.UseCases.Login.LogIn;

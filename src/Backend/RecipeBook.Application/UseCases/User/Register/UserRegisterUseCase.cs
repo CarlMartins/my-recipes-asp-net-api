@@ -5,7 +5,7 @@ using RecipeBook.Application.Services.Token;
 using RecipeBook.Application.UseCases.User.Register.Interfaces;
 using RecipeBook.Comunication.DTOs.SignUp;
 using RecipeBook.Domain.Repositories;
-using RecipeBook.Domain.Repositories.UserRepositories;
+using RecipeBook.Domain.Repositories.User;
 using RecipeBook.Exceptions;
 using RecipeBook.Exceptions.ExceptionsBase;
 

@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using RecipeBook.Domain.Entities;
-using RecipeBook.Domain.Repositories.UserRepositories;
+using RecipeBook.Domain.Repositories.User;
 
 namespace RecipeBook.Infrastructure.RepositoryAccess.Repositories;
 
-public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository
+public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository, IUserUpdateUpdateOnlyRepository
 {
     private readonly MyRecipesContext _context;
 
@@ -28,5 +28,10 @@ public class UserRepository : IUserWriteOnlyRepository, IUserReadOnlyRepository
         return await _context.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
+    }
+
+    public void Update(User user)
+    {
+        _context.Users.Update(user);
     }
 }
