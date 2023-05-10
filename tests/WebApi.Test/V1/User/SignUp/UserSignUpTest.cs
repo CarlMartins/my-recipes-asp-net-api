@@ -6,11 +6,11 @@ using TestHelpers.Requests;
 
 namespace WebApi.Test.V1.User.SignUp;
 
-public class UserSignUpT : ControllerBase
+public class UserSignUpTest : ControllerBase
 {
     private const string Method = "user";
     
-    public UserSignUpT(WebAppFactory<Program> factory) : base(factory)
+    public UserSignUpTest(WebAppFactory<Program> factory) : base(factory)
     { 
     }
 

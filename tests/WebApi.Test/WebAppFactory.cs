@@ -2,12 +2,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using RecipeBook.Domain.Entities;
 using RecipeBook.Infrastructure.RepositoryAccess;
 
 namespace WebApi.Test;
 
 public class WebAppFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
 {
+    private User _user = null!;
+    private string _password = null!;
+    
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Test")
@@ -34,6 +38,18 @@ public class WebAppFactory<TStartup> : WebApplicationFactory<TStartup> where TSt
                 var database = scope.ServiceProvider.GetRequiredService<MyRecipesContext>();
 
                 database.Database.EnsureDeleted();
+
+                (_user, _password) =  ContextSeedInMemory.Seed(database);
             });
+    }
+    
+    public User GetUser()
+    {
+        return _user;
+    }
+    
+    public string GetPassword()
+    {
+        return _password;
     }
 }
