@@ -41,7 +41,7 @@ public static class Bootstrapper
         services
             .AddScoped<IUserWriteOnlyRepository, UserRepository>()
             .AddScoped<IUserReadOnlyRepository, UserRepository>()
-            .AddScoped<IUserUpdateUpdateOnlyRepository, UserRepository>();
+            .AddScoped<IUserUpdateOnlyRepository, UserRepository>();
     }
 
     private static void AddUnitOfWork(IServiceCollection services)

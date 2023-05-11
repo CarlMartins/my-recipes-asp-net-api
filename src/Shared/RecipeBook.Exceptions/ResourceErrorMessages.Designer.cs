@@ -122,5 +122,23 @@ namespace RecipeBook.Exceptions {
                 return ResourceManager.GetString("INVALID_USER_CONTACT", resourceCulture);
             }
         }
+        
+        public static string INVALID_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("INVALID_CURRENT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        public static string EXPIRED_TOKEN {
+            get {
+                return ResourceManager.GetString("EXPIRED_TOKEN", resourceCulture);
+            }
+        }
+        
+        public static string UNAUTHORIZED_USER {
+            get {
+                return ResourceManager.GetString("UNAUTHORIZED_USER", resourceCulture);
+            }
+        }
     }
 }

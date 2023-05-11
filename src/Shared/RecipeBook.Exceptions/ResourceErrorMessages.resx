@@ -19,42 +19,51 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="INVALID_RECIPE_CATEGORY" xml:space="preserve">
-        <value>The recipe's category is not valid</value>
+        <value>The recipe's category is not valid.</value>
     </data>
     <data name="CODE_NOT_FOUND" xml:space="preserve">
-        <value>Code not found</value>
+        <value>Code not found.</value>
     </data>
     <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
-        <value>The e-mail is already registered</value>
+        <value>The e-mail is already registered.</value>
     </data>
     <data name="EMPTY_USER_EMAIL" xml:space="preserve">
-        <value>The e-mail is required</value>
+        <value>The e-mail is required.</value>
     </data>
     <data name="INVALID_USER_EMAIL" xml:space="preserve">
-        <value>The e-mail is invalid</value>
+        <value>The e-mail is invalid.</value>
     </data>
     <data name="UNKNOWN_ERROR" xml:space="preserve">
-        <value>An unknown error has occorred</value>
+        <value>An unknown error has occorred.</value>
     </data>
     <data name="INVALID_LOGIN" xml:space="preserve">
-        <value>The e-mail and/or password are incorrect</value>
+        <value>The e-mail and/or password are incorrect.</value>
     </data>
     <data name="EMPTY_USER_NAME" xml:space="preserve">
-        <value>The user name is required</value>
+        <value>The user name is required.</value>
     </data>
     <data name="INVALID_PASSWORD" xml:space="preserve">
-        <value>The password is not valid</value>
+        <value>The password is not valid.</value>
     </data>
     <data name="EMPTY_USER_PASSWORD" xml:space="preserve">
-        <value>The password is required</value>
+        <value>The password is required.</value>
     </data>
     <data name="MINIMUN_SIX_CHARACTERS_PASSWORD" xml:space="preserve">
-        <value>The password must have at least 6 characters</value>
+        <value>The password must have at least 6 characters.</value>
     </data>
     <data name="EMPTY_USER_CONTACT" xml:space="preserve">
-        <value>The contact is required</value>
+        <value>The contact is required.</value>
     </data>
     <data name="INVALID_USER_CONTACT" xml:space="preserve">
-        <value>The contact is not valid</value>
+        <value>The contact is not valid.</value>
+    </data>
+    <data name="INVALID_CURRENT_PASSWORD" xml:space="preserve">
+        <value>The current password is invalid.</value>
+    </data>
+    <data name="EXPIRED_TOKEN" xml:space="preserve">
+        <value>Expired token. Please, login again.</value>
+    </data>
+    <data name="UNAUTHORIZED_USER" xml:space="preserve">
+        <value>Unauthorized user.</value>
     </data>
 </root>
