@@ -20,10 +20,6 @@ public class UserSignUpValidator : AbstractValidator<SignUpUserRequestDto>
         RuleFor(x => x.Contact)
             .NotEmpty()
             .WithMessage(ResourceErrorMessages.EMPTY_USER_CONTACT);
-        
-        RuleFor(x => x.Password)
-            .NotEmpty()
-            .WithMessage(ResourceErrorMessages.EMPTY_USER_PASSWORD);
 
         When(x => !string.IsNullOrWhiteSpace(x.Email), () =>
         {
@@ -31,13 +27,10 @@ public class UserSignUpValidator : AbstractValidator<SignUpUserRequestDto>
                 .EmailAddress()
                 .WithMessage(ResourceErrorMessages.INVALID_USER_EMAIL);
         });
-        
-        When(x => !string.IsNullOrWhiteSpace(x.Password), () =>
-        {
-            RuleFor(x => x.Password.Length).GreaterThanOrEqualTo(6)
-                .WithMessage(ResourceErrorMessages.MINIMUN_SIX_CHARACTERS_PASSWORD);
-        });
 
+        RuleFor(x => x.Password)
+            .SetValidator(new PasswordValidator());
+      
         When(x => !string.IsNullOrWhiteSpace(x.Contact), () =>
         {
             RuleFor(x => x.Contact).Custom((contact, context) =>

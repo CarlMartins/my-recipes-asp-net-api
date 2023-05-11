@@ -5,15 +5,17 @@ using RecipeBook.Domain.Extensions;
 using RecipeBook.Infrastructure;
 using RecipeBook.Infrastructure.Migrations;
 using RecipeBook.Infrastructure.RepositoryAccess;
+using RecipeBook.Infrastructure.SwaggerConfig;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRouting(opt => opt.LowercaseUrls = true);
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.SetupSwaggerGen();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddMvc(option => { option.Filters.Add(typeof(ExceptionFilter)); });
@@ -22,6 +24,8 @@ builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(cfg =>
 {
     cfg.AddProfile(new AutoMapperConfiguration());
 }).CreateMapper());
+
+builder.Services.AddScoped<AuthenticatedUserAttribute>();
 
 var app = builder.Build();
 
