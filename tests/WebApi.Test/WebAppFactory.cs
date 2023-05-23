@@ -39,7 +39,7 @@ public class WebAppFactory<TStartup> : WebApplicationFactory<TStartup> where TSt
 
                 database.Database.EnsureDeleted();
 
-                (_user, _password) =  ContextSeedInMemory.Seed(database);
+                (_user, _password) = ContextSeedInMemory.Seed(database);
             });
     }
     
