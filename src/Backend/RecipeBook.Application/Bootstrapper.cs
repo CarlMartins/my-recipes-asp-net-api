@@ -22,7 +22,7 @@ public static class Bootstrapper
 
     private static void AddPasswordSalt(this IServiceCollection services, IConfiguration configuration)
     {
-        var passwordSaltSection = configuration.GetRequiredSection("Settings:PasswordSalt");
+        var passwordSaltSection = configuration.GetRequiredSection("Settings:Password:PasswordSalt");
         
         services.AddSingleton<IPasswordEncryptor>(_ =>
             new PasswordEncryptor(passwordSaltSection.Value!));
@@ -31,9 +31,9 @@ public static class Bootstrapper
     private static void AddTokenController(this IServiceCollection services, IConfiguration configuration)
     {
         var tokenExpirationMinutes = Convert.ToDouble(
-            configuration.GetRequiredSection("Settings:TokenExpirationMinutes").Value);
+            configuration.GetRequiredSection("Settings:Jwt:TokenExpirationMinutes").Value);
 
-        var tokenKey = configuration.GetRequiredSection("Settings:TokenKey").Value!;
+        var tokenKey = configuration.GetRequiredSection("Settings:Jwt:TokenKey").Value!;
 
         services.AddSingleton<ITokenController>(_ => new TokenController(tokenExpirationMinutes, tokenKey!));
     }
